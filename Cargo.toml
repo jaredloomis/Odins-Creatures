@@ -7,8 +7,9 @@ edition = "2024"
 anyhow = "1.0.100"
 bevy = "0.17.3"
 chrono = "0.4.42"
+chumsky = "0.11.2"
 dashmap = "6.1.0"
-derive_more = { version = "2.0.1", features = ["add"] }
+derive_more = { version = "2.0.1", features = ["add", "full"] }
 either = "1.15.0"
 futures = "0.3.31"
 lazy_static = "1.5.0"

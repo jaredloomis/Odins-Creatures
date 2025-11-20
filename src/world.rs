@@ -1,7 +1,10 @@
-use std::ops::Sub;
+//use std::ops::Sub;
+use derive_more::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
 
 use bevy::{
     prelude::*,
+    prelude::Vec2
+
 };
 
 /* Entities */
@@ -10,11 +13,9 @@ use bevy::{
 
 /* Components */
 
-#[derive(Component, Default, Sub)]
-pub struct Position {
-    pub x: i32,
-    pub y: i32,
-}
+#[derive(Component, Default, Sub, Add, Mul, AddAssign, SubAssign, MulAssign, DivAssign, Div, Deref, DerefMut, Clone, Copy)]
+pub struct Position(pub Vec2);
+
 
 #[derive(Component, Default)]
 pub struct MovementPotential {
