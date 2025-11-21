@@ -17,4 +17,6 @@ The plan is to have a simple 2D GUI using [Bevy](bevy.org).
 - [ ] Combat, Orcs/Elves/etc.
 - [ ] Crafting
   - [ ] Wood tools
-- [ ] AI-generated "thoughts" for all conscious entities
+  - [ ] Stone tools
+- [ ] LLM-generated "thoughts" for all conscious entities
+- [ ] Menu for taking actions, replacing the command palette
