@@ -1,5 +1,5 @@
 //use std::ops::Sub;
-use derive_more::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign};
+use derive_more::{Add, AddAssign, Div, DivAssign, Mul, MulAssign, Sub, SubAssign, Eq};
 
 use bevy::{
     prelude::*,
@@ -16,7 +16,6 @@ use bevy::{
 #[derive(Component, Default, Sub, Add, Mul, AddAssign, SubAssign, MulAssign, DivAssign, Div, Deref, DerefMut, Clone, Copy)]
 pub struct Position(pub Vec2);
 
-
 #[derive(Component, Default)]
 pub struct MovementPotential {
     // Tiles per second
@@ -26,8 +25,9 @@ pub struct MovementPotential {
 }
 
 #[derive(Component, Default)]
-pub struct MultiIntention(pub Vec<Intention>);
+pub struct MultiIntention(pub dashmap::DashMap<Intention, u8>);
 
+#[derive(Eq, Ord)]
 pub enum Intention {
   FromPlayer(PlayerCommand),
   FromSelf(SelfIntention),
@@ -40,6 +40,7 @@ impl Default for Intention {
   }
 }
 
+#[derive(Eq, Ord)]
 pub enum DwarfCommand {
   // Dwarf told dwarf to go to position
   GoToPosition {
@@ -47,6 +48,7 @@ pub enum DwarfCommand {
   },
 }
 
+#[derive(Eq, Ord)]
 pub enum SelfIntention {
   Relax,
   Eat,
